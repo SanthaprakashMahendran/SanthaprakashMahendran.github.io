@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details - Linux Server Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background-color: #1a202c;
+      color: #e2e8f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .project-details-container {
+      max-width: 64rem;
+      width: 100%;
+      padding: 2rem;
+      background-color: #2d3748;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    h1, h2 {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #cbd5e0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-image-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    a {
+      color: #38bdf8;
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="project-details-container">
+    <h1>Automated Tool for Streamlined Installation/Reinstallation of Monitoring Agents</h1>
+
+    <h2>Challenge: </h2>
+    <ul>
+      <li>Traditionally, installing or reinstalling tools like Nagios, Tanium, Splunk, Qualys, and Flexera involved multiple manual steps—stopping services, uninstalling old packages, cleaning directories, installing and configuring new packages, restarting services, and verifying service status. 
+Traditionally, installing or reinstalling tools like Nagios, Tanium, Splunk, Qualys, and Flexera involved multiple manual steps—stopping services, uninstalling old packages, cleaning directories, installing and configuring new packages, restarting services, and verifying service status. 
+</li>
+    </ul>
+
+    <h2>Solution: </h2>
+    <ul>
+      <li>To address this, Developed a CLI tool to automate installation and reinstallation of monitoring agents such as Nagios, Tanium, Splunk, Qualys, and Flexera.
+</li>
+      <li>It accepts text files as input and tool selection via a simple CLI menu and perfoms installation/resinstallation and displays te service status upon completion .
+</li>
+      <li>Reduced manual effort from ~1 hour to under 10 minutes per server.
+</li>
+    </ul>
+
+    <a href="index.html#projects">← Back to Projects</a>
+  </div>
+
+</body>
+</html>
+

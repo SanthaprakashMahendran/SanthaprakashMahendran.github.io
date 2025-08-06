@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details - Linux Server Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background-color: #1a202c;
+      color: #e2e8f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .project-details-container {
+      max-width: 64rem;
+      width: 100%;
+      padding: 2rem;
+      background-color: #2d3748;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    h1, h2 {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #cbd5e0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-image-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    a {
+      color: #38bdf8;
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="project-details-container">
+    <h1>Real-Time Linux Server Monitoring Dashboard</h1>
+
+    <h2>My Role (DevOps):</h2>
+    <ul>
+      <li>Created a Bash script to collect CPU and memory usage data from Linux servers and store it in an RRDTool time-series database.</li>
+      <li>Scheduled data collection using cron jobs to run every 10 minutes across multiple servers.</li>
+      <li>After the application was developed by the team, I:</li>
+      <ul>
+        <li>Designed and configured a full CI/CD pipeline using Jenkins to automate build, testing (SonarQube), and deployment processes.</li>
+        <li>Used Git as the version control system.</li>
+        <li>Containerized the application using Docker and pushed the image to AWS ECR.</li>
+        <li>Helm chart is used for managing Kubernetes manifests and simplifying deployment configuration.</li>
+        <li>Deployed the application to Kubernetes, ensuring high availability and scalability.</li>
+        <li>Integrated ArgoCD for GitOps-based continuous deployment to the production cluster.</li>
+        <li>Configured Prometheus and Grafana for real-time monitoring of application performance and health metrics.</li>
+      </ul>
+    </ul>
+
+    <h2>Website Features (Developed by Dev Team):</h2>
+    <ul>
+      <li>A real-time, web-based dashboard to display CPU and memory usage graphs across enterprise Linux systems.</li>
+      <li>Search functionality to retrieve performance data by date and time, enabling faster root cause analysis during P1/P2 incidents.</li>
+      <li>LDAP-based authentication to restrict dashboard access to authorized users only.</li>
+    </ul>
+
+
+    <a href="index.html#projects">← Back to Projects</a>
+  </div>
+
+</body>
+</html>
+

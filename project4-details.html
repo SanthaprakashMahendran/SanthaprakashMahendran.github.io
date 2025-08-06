@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details - Linux Server Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background-color: #1a202c;
+      color: #e2e8f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .project-details-container {
+      max-width: 64rem;
+      width: 100%;
+      padding: 2rem;
+      background-color: #2d3748;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    h1, h2 {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #cbd5e0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-image-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    a {
+      color: #38bdf8;
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="project-details-container">
+    <h1>Automated Console Validation Script for Standalone Physical Servers</h1>
+
+    <h2>Challenge: </h2>
+    <ul>
+      <li>After server reboots, several standalone physical servers (Cisco, HP, Dell) occasionally failed to come online, also we face console access issues. 
+This delayed recovery efforts, as teams first had to resolve console connectivity before bringing the servers back online. 
+Additionally, manual validation prior to patching was time-consuming—taking approximately 5 minutes per server.
+</li>
+    </ul>
+
+    <h2>Solution: </h2>
+    <ul>
+      <li>To address this, Created a automated script to validate console accessibility and login credentials for standalone physical servers (Cisco, HP, Dell).</li>
+      <li>Reduced manual validation time by 90% and improved post-reboot recovery by proactively identifying access issues.</li>
+      <li>Integrated weekly email reporting to highlight console failures and credential mismatches for timely resolution.</li>
+    </ul>
+
+    <a href="index.html#projects">← Back to Projects</a>
+  </div>
+
+</body>
+</html>
+

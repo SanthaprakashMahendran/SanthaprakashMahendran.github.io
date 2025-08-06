@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details - Linux Server Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background-color: #1a202c;
+      color: #e2e8f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .project-details-container {
+      max-width: 64rem;
+      width: 100%;
+      padding: 2rem;
+      background-color: #2d3748;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    h1, h2 {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #cbd5e0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-image-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    a {
+      color: #38bdf8;
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="project-details-container">
+    <h1>Terraform AWS Modular Infrastructure
+</h1>
+
+    <ul>
+      <li>Designed and implemented a modular Terraform architecture to provision AWS infrastructure with reusable, maintainable code.
+</li>
+      <li>Created a custom VPC with private subnets for EC2 instances and public subnets for the ALB.
+</li>
+      <li>Launched EC2 instances in private subnets, attaching appropriate IAM roles and instance profiles for secure AWS access.
+</li>
+<li>Configured an Application Load Balancer (ALB) in the public subnet to distribute traffic and ensure high availability.
+</li>
+<li>Used S3 for static content storage and configured as a remote backend for Terraform state management.
+</li>
+<li>Enabled state locking with DynamoDB to ensure safe concurrent infrastructure changes.
+</li>
+<li>Deployed a web application on EC2, accessible through the ALB DNS.
+</li>
+<li>Followed best practices for modular architecture, improving reusability, clarity, and version control of infrastructure components.</li>
+</ul>
+
+    <a href="index.html#projects">← Back to Projects</a>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details - Linux Server Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background-color: #1a202c;
+      color: #e2e8f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .project-details-container {
+      max-width: 64rem;
+      width: 100%;
+      padding: 2rem;
+      background-color: #2d3748;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    h1, h2 {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #cbd5e0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-image-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    a {
+      color: #38bdf8;
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="project-details-container">
+    <h1>Precheck & Postcheck Script for Linux Server Patching
+</h1>
+
+    <h2>Challenge: </h2>
+    <ul>
+      <li>Traditionally, pre checking on Linux servers required manual validation of file system (FS) space and kernel availability. If FS usage exceeded 85%, manual cleanup was necessary. Additionally, servers had to be re-registered with Satellite to fetch the latest kernel. This process took around 5 minutes per server ,increasing manual workload significantly.
+</li>
+    </ul>
+
+    <h2>Solution: </h2>
+    <ul>
+      <li>Developed a script to check file system usage on Unix servers, perform cleanup if thresholds are exceeded also validates kernel versions, and re-registers servers with Satellite when needed.
+</li>
+      <li>Post-patch validation confirms kernel update success, significantly reducing human error and patch cycle time.
+</li>
+      <li>Reduced manual effort from approximately 50 hours to 5 hours per patching cycle.
+</li>
+    </ul>
+
+    <a href="index.html#projects">← Back to Projects</a>
+  </div>
+
+</body>
+</html>
+
