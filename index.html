@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santhaprakash Mahendran</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Equivalent to bg-gray-900 */
+            color: #e2e8f0; /* Equivalent to text-gray-200 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography */
+        .playfair-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Layout & Structure */
+        .container {
+            max-width: 1280px; /* Equivalent to container max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748; /* Equivalent to bg-gray-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568; /* Equivalent to bg-gray-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096; /* Equivalent to bg-gray-500 */
+        }
+
+        /* Header and Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 32, 44, 0.8); /* Equivalent to bg-gray-900 bg-opacity-80 */
+            backdrop-filter: blur(5px); /* Equivalent to backdrop-blur-sm */
+            z-index: 50;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to shadow-lg */
+        }
+
+        .header-nav {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #38bdf8; /* Equivalent to text-sky-400 */
+            transition: color 0.3s;
+        }
+        .header-logo:hover {
+            color: #7dd3fc; /* Equivalent to hover:text-sky-300 */
+        }
+
+        .header-links {
+            display: none; /* Equivalent to hidden */
+            gap: 1.5rem; /* Equivalent to space-x-6 */
+        }
+
+        .header-links a {
+            color: #cbd5e0; /* Equivalent to text-gray-300 */
+            transition: color 0.3s;
+        }
+        .header-links a:hover {
+            color: #ffffff; /* Equivalent to hover:text-white */
+        }
+
+        .mobile-menu-btn {
+            display: block; /* Equivalent to block */
+            color: #cbd5e0; /* Equivalent to text-gray-300 */
+            transition: color 0.3s;
+        }
+        .mobile-menu-btn:hover {
+            color: #ffffff; /* Equivalent to hover:text-white */
+        }
+        .mobile-menu-btn:focus {
+            outline: none; /* Equivalent to focus:outline-none */
+        }
+        .mobile-menu-btn svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: #2d3748; /* Equivalent to bg-gray-800 */
+        }
+        .mobile-menu.show {
+            display: block;
+        }
+        .mobile-menu a {
+            display: block;
+             text-decoration: none !important;
+             color: inherit !important;
+        }
+        .mobile-menu a:hover {
+            background-color: #4a5568; /* Equivalent to hover:bg-gray-700 */
+        }
+
+        /* Main content sections */
+        main {
+            padding-top: 6rem; /* Equivalent to pt-24 */
+            padding-bottom: 3rem; /* Equivalent to pb-12 */
+        }
+
+        /* --- Updated separator to remove the line from the about section --- */
+        .section-separator {
+            border-color: #4a5568; /* Equivalent to border-gray-700 */
+        }
+
+        /* Home section */
+        .home-section-content {
+            display: flex;
+            flex-direction: column; /* Equivalent to flex-col */
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem; /* Equivalent to space-y-4 */
+        }
+
+        .home-text-content {
+            max-width: 48rem; /* Equivalent to max-w-xl */
+            text-align: center;
+        }
+
+        .home-title {
+            font-size: 1rem; /* Equivalent to text-5xl */
+            line-height: 1;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        .home-subtitle {
+            font-size: 1.125rem; /* Equivalent to text-lg */
+            color: #cbd5e0;
+            margin-bottom: 1.5rem;
+        }
+        .home-cta-button {
+            display: inline-block;
+            background-color: #0ea5e9; /* Equivalent to bg-sky-500 */
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem; /* Equivalent to rounded-md */
+            transition-property: background-color;
+            transition-duration: 300ms;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .home-cta-button:hover {
+            background-color: #0284c7; /* Equivalent to hover:bg-sky-600 */
+        }
+
+        .home-image-container {
+            flex-shrink: 0;
+            width: 100%;
+            height: auto;
+            max-width: 24rem; /* Equivalent to md:max-w-sm */
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Equivalent to shadow-2xl */
+        }
+        .home-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* About Section */
+        .about-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-decoration: none; /* Ensure no underlines */
+        }
+        .about-section-content {
+            max-width: 50rem; /* Equivalent to max-w-3xl */
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.125rem;
+            color: #cbd5e0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+           gap: 0.5rem;
+        }
+
+        .about-section-content p {
+    margin: 10px;
+}
+        /* Experience Section */
+        .experience-section h2 {
+             font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-decoration: none; /* Ensure no underlines */
+        }
+        .experience-grid {
+            display: grid;
+            gap: 2rem; /* Equivalent to gap-8 */
+            max-width: 56rem; /* Equivalent to max-w-4xl */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .experience-card {
+            background-color: #2d3748; /* Equivalent to bg-gray-800 */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s;
+        }
+        .experience-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .experience-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .experience-card p {
+            color: #38bdf8;
+            margin-bottom: 0.5rem;
+        }
+        .experience-card ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: #cbd5e0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Skills Section */
+
+         .skills-container {
+            background-color: #1f2733; /* Darker than body for contrast */
+            border-radius: 1rem;
+            padding: 3rem;
+            max-width: 80rem; /* Adjusted for a wider layout */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            position: relative;
+        }
+
+        .skills-header {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) translateX(-50%) rotate(-90deg);
+            white-space: nowrap;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f7a01a; /* Adjusted to a warm orange for contrast */
+            padding: 0.5rem 1rem;
+            background-color: #2d3748;
+            border-radius: 0.5rem;
+        }
+
+        .skills-content {
+            margin-left: 5rem;
+            width: 100%;
+        }
+
+        .skills-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-subtitle {
+            text-align: center;
+            color: #a0aec0; /* Equivalent to text-gray-400 */
+            margin-bottom: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .skill-card {
+            background-color: #2d3748; /* Equivalent to bg-gray-800 */
+            border-radius: 0.75rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card img {
+            height: 3rem;
+            width: auto;
+            margin-bottom: 0.5rem;
+            /* Removed the grayscale filter to make images always colored */
+            /* filter: grayscale(100%); */
+            /* transition: filter 0.3s; */
+        }
+
+        /* The hover effect to turn the image colored is no longer needed
+           since they are now always colored. */
+        /* .skill-card:hover img {
+            filter: grayscale(0%);
+        } */
+
+        .skill-card p {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #cbd5e0;
+            margin: 0;
+        }
+
+        /* Certificates and Recognition Sections */
+        .certificates-section h2, .recognition-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-decoration: none; /* Ensure no underlines */
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 2rem;
+            max-width: 72rem; /* Equivalent to max-w-6xl */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card {
+            background-color: #2d3748;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .card img {
+            width: 100%;
+            height: 18rem;
+            object-fit: cover;
+        }
+
+        #card1 img {
+            height: 20rem !important;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .card-body h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        .card-body p {
+            color: #cbd5e0;
+        }
+        .card-body .subtitle {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .card-body a {
+            color: #38bdf8;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        .card-body a:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+
+        /* Projects Section */
+        .projects-section h2 {
+              font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-decoration: none; /* Ensure no underlines */
+        }
+
+        /* Contact Section */
+        .contact-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-decoration: none; /* Ensure no underlines */
+        }
+        .contact-form-container {
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #2d3748;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .contact-form-container p {
+            text-align: center;
+            color: #cbd5e0;
+            margin-bottom: 1.5rem;
+        }
+        .contact-form label {
+            display: block;
+            color: #a0aec0; /* Equivalent to text-gray-400 */
+            margin-bottom: 0.25rem;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            background-color: #4a5568; /* Equivalent to bg-gray-700 */
+            border: 1px solid #4a5568;
+            color: #ffffff;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #0ea5e9;
+        }
+        .contact-form button {
+            width: 100%;
+            background-color: #0ea5e9;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .contact-form button:hover {
+            background-color: #0284c7;
+        }
+        .message-box {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1a202c;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            text-align: center;
+            color: #a0aec0; /* Equivalent to text-gray-400 */
+            font-size: 0.875rem;
+        }
+
+        #mobile-menu a {
+    text-decoration: none;
+    color: inherit; /* Optional: Keeps text color consistent */
+}
+
+ .contact-info-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #2d3748;
+        padding: 2rem;
+        border-radius: 0.5rem;
+    }
+    .contact-info-container p {
+        color: #cbd5e0;
+        margin-bottom: 1.5rem;
+    }
+    .contact-list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .contact-list li {
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+        color: #e2e8f0;
+        display: flex;
+        align-items: center;
+    }
+    .contact-list .icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: #38bdf8; /* Accent color for icons */
+    }
+    .contact-list a {
+        color: #e2e8f0;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .contact-list a:hover {
+        color: #38bdf8;
+    }
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .header-links {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: none;
+            }
+            .home-section-content {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+            .home-text-content {
+                text-align: left;
+            }
+            .home-title {
+                font-size: 2.5rem; /* Equivalent to md:text-7xl */
+            }
+            .home-subtitle {
+                font-size: 1.25rem;
+            }
+            .home-image-container {
+                width: 50%;
+                height: 24rem; /* Equivalent to md:h-96 */
+            }
+            .about-section-content {
+                text-align: left;
+                font-size: 1.125rem;
+            }
+            .card-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header">
+        <nav class="header-nav container">
+            <a href="#home" class="header-logo" style="text-decoration: no;">Santhaprakash Mahendran</a>
+            <div class="header-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                 <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#recognition">Recognition</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="mobile-menu-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#about" style="text-decoration: none !important;">About</a>
+            <a href="#experience" style="text-decoration: none !important;">Experience</a>
+            <a href="#skills" style="text-decoration: none !important;">Skills</a>
+            <a href="#certificates" style="text-decoration: none !important;">Certificates</a>
+            <a href="#recognition" style="text-decoration: none !important;">Recognition</a>
+            <a href="#projects" style="text-decoration: none !important;">Projects</a>
+            <a href="#contact" style="text-decoration: none !important;">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+            <div class="home-section-content">
+                <div class="home-text-content">
+                    <h3 class="home-title playfair-display">
+                        Linux System Administrator | Aspiring DevOps Engineer
+                    </h3>
+                    <p class="home-subtitle">
+                        A Linux System Administrator with a passion for automating infrastructure and streamlining workflows. Actively transitioning my deep system knowledge into the world of DevOps to build robust, scalable, and efficient systems.
+                    </p>
+                    <a href="#about" class="home-cta-button" style="text-decoration: none;">
+                        Learn More
+                    </a>
+                </div>
+                <div class="home-image-container">
+                    <img src="./Profile.jpeg"
+                             alt="Your Photo">
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><hr class="section-separator"></div>
+
+        <section id="about" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+            <h2 style="text-align: center;">About Me</h2>
+            <div class="about-section-content">
+                <p> Linux System Administrator with 2+ years of experience in server provisioning, system administration, troubleshooting, and resolving issues across RHEL, Oracle Linux, CentOS, and Rocky Linux environments. Proficient in managing both cloud infrastructure (AWS) and on-prem virtualization using VMware vSphere and Oracle VM.</p>
+<p>Experienced in automating operational tasks with Bash scripting, Ansible, and Terraform, reducing manual effort and streamlining workflows. Applied DevOps principles using Docker, Jenkins, Helm, ArgoCD, Prometheus, and Grafana to build, deploy, and monitor web applications on Kubernetes (Amazon EKS).</p>
+<p>With a strong foundation in Linux and growing expertise in DevOps tools and practices, actively transitioning into a DevOps role where I can deliver scalable, automated, and efficient infrastructure solutions. Passionate about collaborating with cross-functional teams to create solutions that are efficient, secure, and user-focused.</p>
+            </div>
+        </section>
+
+        <div class="container"><hr class="section-separator"></div>
+
+        <section id="experience" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+            <h2  style="text-align: center;">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Linux System Administrator</h3>
+                    <p>AstraZeneca | Feb 2023 - Present</p>
+                    <ul>
+                        <li>Provision, manage, and troubleshoot Linux servers (RHEL, Oracle Linux, CentOS, Rocky, Ubuntu) across development, pre-production, and production environments.</li>
+                        <li>Perform Linux system administration tasks including server provisioning, patching, firmware upgrades, LVM storage management, NFS configuration, printer setup, resource uplift, and day-to-day operations.</li>
+                        <li>Proficient in on-prem virtualization using VMware vSphere and Oracle VM.</li>
+                        <li>Skilled in using Cisco UCS Manager for physical server and hardware management.</li>
+                        <li>Proficient in AWS services for provisioning and managing cloud infrastructure.</li>
+                        <li>Automate recurring operational tasks using Bash scripting, Ansible, and Terraform to improve efficiency and reduce manual intervention.</li>
+                        <li>Proven ability to reduce manual effort and service time by automating key system administration tasks—saved over 60 hours/week across console validation, monitoring agent deployment, and patching processes.</li>
+                        <li>Designed and implemented end-to-end CI/CD pipelines using Git, Docker, Jenkins, Kubernetes, Helm, ArgoCD and Amazon ECR to streamline application delivery in compliance with DevOps best practices.</li>
+                        <li>Integrated Prometheus and Grafana to create dashboards for real-time monitoring and observability,enabling proactive response and performance optimization.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><hr class="section-separator"></div>
+
+         <section id="skills" class="skills-container">
+        <div class="skills-content">
+            <h2 class="skills-title" style="padding-bottom:40px">Skills</h2>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/linux/linux-icon.svg" alt="Linux Logo">
+                    <p>Linux</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-ar21.svg" alt="Bash Scripting Logo">
+                    <p>Bash Scripting</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/ansible/ansible-ar21.svg" alt="Ansible Logo">
+                    <p>Ansible</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.freepnglogos.com/uploads/vmware-png-logo/vmware-administration-essentials-including-admin-png-logo--15.png" alt="VMware Logo">
+                    <p>VMware</p>
+                </div>
+
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg" alt="Oracle Virtual Manager Logo">
+                    <p>Oracle VM</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS Logo">
+                    <p>AWS</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GIT Logo">
+                    <p>GIT</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" alt="Terraform Logo">
+                    <p>Terraform</p>
+                </div>
+
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins Logo">
+                    <p>Jenkins</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker Logo">
+                    <p>Docker</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="Kubernetes Logo">
+                    <p>Kubernetes</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/amazon_eks/amazon_eks-icon.svg" alt="EKS Logo">
+                    <p>EKS</p>
+                </div>
+
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/argoprojio/argoprojio-ar21.svg" alt="ArgoCD Logo">
+                    <p>ArgoCD</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" alt="Prometheus Logo">
+                    <p>Prometheus</p>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana Logo">
+                    <p>Grafana</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <div class="container"><hr class="section-separator"></div>
+
+        <section id="projects" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+    <h2 style="text-align: center;">Projects</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-body">
+                <h3 style="font-weight: bold !important;">Real-Time Linux Server Monitoring Dashboard</h3>
+                <p style="font-weight: bold !important;">Tech Stack:</p>
+                <p class="subtitle" > Linux , Bash, Jenkins, Docker, Kubernetes, Git, Amazon ECR, Helm, ArgoCD, Prometheus, Grafana, RRDTool.</p>
+                <p style="margin-bottom: 1rem;">Deployed a lightweight web-based dashboard to display CPU usage, Memory usage, Uptime, OS version, and disk utilization of Linux servers in real-time.</p>
+                <a href="project1-details.html" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3>Oneview-Unix</h3>
+                 <p style="font-weight: bold !important;">Tech Stack:</p>
+                  <p class="subtitle" > Jenkins, Git, Docker, Kubernetes (EKS with Fargate), Terraform, SonarQube, ArgoCD, AWS ALB Ingress Controller, AWS ECR, Helm , S3 backend.</p>
+                <p style="margin-bottom: 1rem;">Deployed a lightweight web-based portal for the users on EKS using Fargate which will act as a central hub for team.</p>
+                <a href="project3-details.html" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+
+       <div class="card">
+            <div class="card-body">
+                <h3>Real-Time Linux Server Metrics Dashboard</h3>
+                 <p style="font-weight: bold !important;">Tech Stack:</p>
+                  <p class="subtitle" > Linux, Bash, Jenkins, Docker, Kubernetes, Git, Amazon ECR, Helm, ArgoCD, Prometheus, Grafana.</p>
+                <p style="margin-bottom: 1rem;">Deployed a lightweight web-based dashboard to display CPU usage, Memory usage, Uptime, OS version, and disk utilization of Linux servers in real-time.</p>
+                <a href="project2-details.html" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+          <div class="card">
+            <div class="card-body">
+                <h3>Automated Console Validation Script for Standalone Physical Servers</h3>
+                 <p style="font-weight: bold !important;">Tech Stack:</p>
+                  <p class="subtitle" > Linux, Bash.</p>
+                <p style="margin-bottom: 1rem;">Created a automated script to validate console accessibility and login credentials for standalone physical servers (Cisco, HP, Dell).</p>
+                <a href="project4-details.html" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+          <div class="card">
+            <div class="card-body">
+                <h3>Automated Tool for Streamlined Installation/Reinstallation of Monitoring Agents</h3>
+                 <p style="font-weight: bold !important;">Tech Stack:</p>
+                  <p class="subtitle" > Linux, Bash.</p>
+                <p style="margin-bottom: 1rem;">Developed a CLI tool to automate installation and reinstallation of monitoring agents such as Nagios, Tanium, Splunk, Qualys, and Flexera.</p>
+                <a href="project5-details.html" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+          <div class="card">
+            <div class="card-body">
+                <h3>Precheck & Postcheck Script for Linux Server Patching</h3>
+                 <p style="font-weight: bold !important;">Tech Stack:</p>
+                  <p class="subtitle" > Linux, Bash.</p>
+                <p style="margin-bottom: 1rem;">Developed a Unix script to monitor filesystem usage, validate kernel versions, clean up space, re-register servers with Satellite, and perform post-patch kernel validation.
+</p>
+                <a href="project6-details.html" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+         <div class="card" >
+            <div class="card-body" >
+                <h3>Terraform AWS Modular Infrastructure</h3>
+                 <p style="font-weight: bold !important;">Tech Stack:</p>
+                  <p class="subtitle" >Terraform, Jenkins, AWS(EC2,VPC,IAM,S3,ALB,ECR), Git, Docker, ArgoCD, Kubernetes.</p>
+                <p style="margin-bottom: 1rem;">Designed and implemented a modular Terraform architecture to provision AWS infrastructure with reusable, maintainable code.
+</p>
+                <a href="project7-details.html" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+        <div class="card" >
+            <div class="card-body" >
+                <h3>EOSL OS Upgrade Across 6 Business Services</h3>
+                 <p style="font-weight: bold !important;">Tech Stack:</p>
+                  <p class="subtitle" >Linux, Vmware, OVM</p>
+                <p style="margin-bottom: 1rem;">Upgraded over 60 End-of-Support Linux servers (application and database) to newer OS versions, enhancing security and ensuring compliance.
+</p>
+                <a href="project8-details.html" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <div class="container"><hr class="section-separator"></div>
+
+        <section id="certificates" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+            <h2  style="text-align: center;">Certificates</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="./RHCSA.png" alt="Certificate 1">
+                    <div class="card-body">
+                        <h3>Red Hat Certified System Administrator (RHCSA)</h3>
+                        <p class="subtitle">Issued by Red Hat </p>
+                        <a href="https://www.credly.com/earner/earned/badge/2ef26b7d-de42-4237-becd-55ad0e792a37" target="_blank">View Credential &rarr;</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./RHCE.png" alt="Certificate 2">
+                    <div class="card-body">
+                        <h3>Red Hat Certified Engineer (RHCE)</h3>
+                        <p class="subtitle">Issued by Red Hat</p>
+                        <a href="https://www.credly.com/earner/earned/badge/a569890c-699f-41ef-b8c1-e26b2b0eb6e4" target="_blank">View Credential &rarr;</a>
+                    </div>
+                </div>
+                 <div class="card">
+                    <img src="./Openshift.png" alt="Certificate 3">
+                    <div class="card-body">
+                        <h3>Red Hat Certified OpenShift Administrator</h3>
+                        <p class="subtitle">Issued by Red Hat </p>
+                        <a href="https://www.credly.com/earner/earned/badge/27893ef9-d26d-444e-a012-9ad20bca99d9" target="_blank">View Credential &rarr;</a>
+                    </div>
+                </div>
+                <div class="card" id="card1">
+                    <img src="./AWS_cloud.png" alt="Certificate 4">
+                    <div class="card-body">
+                        <h3>AWS Cloud Quest: Cloud Practitioner</h3>
+                        <p class="subtitle">Issued by AWS</p>
+                        <a href="https://www.credly.com/earner/earned/badge/7fe3e74f-497d-436e-b944-309e87785850" target="_blank">View Credential &rarr;</a>
+                    </div>
+                </div>
+                <div class="card" id="card1">
+                    <img src="./AWS_compute.png" alt="Certificate 5">
+                    <div class="card-body">
+                        <h3>AWS Technology: Compute</h3>
+                        <p class="subtitle">Issued by AWS</p>
+                        <a href="https://www.credly.com/earner/earned/badge/00cf6f6e-f4c5-4e2f-8a3c-b7a657c50a5b" target="_blank">View Credential &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><hr class="section-separator"></div>
+
+        <section id="recognition" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+            <h2  style="text-align: center;">Recognition</h2>
+            <div class="card-grid">
+                <div class="card experience-card">
+                    <h3>Automation Excellence Award</h3>
+                    <p class="subtitle">Awarded by Unix Team </p>
+                    <p style="margin-bottom: 1rem;">Recognized for significantly reducing manual effort and improving operational efficiency by automating critical system administration tasks—saving over 60 hours per week.</p>
+                </div>
+                <div class="card experience-card">
+                    <h3>High Availability Support Excellence Award</h3>
+                    <p class="subtitle">Awarded by Manufacturing Team </p>
+                    <p style="margin-bottom: 1rem;">Provided critical support during High Availability (HA) testing at a key manufacturing site, ensuring seamless execution with zero disruption to operations.</p>
+                </div>
+                 <div class="card experience-card">
+                    <h3>Enterprise Technology Service Reels Contest</h3>
+                    <p class="subtitle">Awarded by AstraZeneca</p>
+                    <p style="margin-bottom: 1rem;">Won 1st Prize in a group event for creating a service-themed video, showing teamwork and active participation beyond regular work.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><hr class="section-separator"></div>
+
+<section id="contact" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+    <h2 style="text-align: center;">Contact Me</h2>
+    <div class="contact-info-container">
+        <p>Feel free to reach out to me through any of these channels:</p>
+        <ul class="contact-list">
+            <li>
+                <span class="icon">&#9742;</span>
+                <a href="tel:+919751447759">+919751447759</a>
+            </li>
+            <li>
+                <span class="icon">&#9993;</span>
+                <a href="mailto:santhaprakash2007@gmail.com">santhaprakash2007@gmail.com</a>
+            </li>
+            <li>
+                <span class="icon">&#128279;</span>
+                <a href="https://www.linkedin.com/in/santha-prakash-014003207/" target="_blank">linkedin.com/santha-prakash-014003207/ </a>
+            </li>
+        </ul>
+    </div>
+</section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Santhaprakash Mahendran All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+
+                // Prevent default behavior for links with an empty hash (#) to avoid the error.
+                // Otherwise, use the hash to scroll to the correct section.
+                if (targetId && targetId !== '#') {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else if (targetId === '#') {
+                    e.preventDefault();
+                }
+
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu.classList.contains('show')) {
+                    mobileMenu.classList.remove('show');
+                }
+            });
+        });
+
+        // Toggle mobile menu visibility
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('show');
+        });
+
+        // Handle contact form submission
+        const contactForm = document.getElementById('contact-form');
+        const messageBox = document.getElementById('message-box');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+
+            // In a real application, you would send this data to a server.
+            // For this example, we'll just show a success message.
+            console.log('Form Submitted!', { name, email, message });
+
+            // Display a success message
+            messageBox.textContent = 'Thank you for your message! I will get back to you shortly.';
+            messageBox.style.display = 'block';
+            messageBox.style.backgroundColor = '#28a745'; /* Green color */
+            messageBox.style.color = '#fff';
+            messageBox.style.padding = '1rem';
+            messageBox.style.borderRadius = '0.375rem';
+            messageBox.style.textAlign = 'center';
+
+            // Clear the form fields
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
+
+
